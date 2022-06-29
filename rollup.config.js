@@ -2,6 +2,7 @@ import 'dotenv/config'
 import path from 'path'
 import typescript from '@rollup/plugin-typescript'
 import babel from '@rollup/plugin-babel'
+import del from 'rollup-plugin-delete'
 import dts from 'rollup-plugin-dts'
 
 const {
@@ -20,7 +21,7 @@ const rollupConfig = [
 	{
 		input,
 		output: [{ file: `${output}.js`, format: 'cjs' }],
-		plugins: [typescript()],
+		plugins: [del({ targets: `${APP_BUILD_DIRNAME}/*` }), typescript()],
 	},
 	{
 		input,
