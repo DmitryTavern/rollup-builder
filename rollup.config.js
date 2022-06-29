@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import path from 'path'
 import typescript from '@rollup/plugin-typescript'
+import babel from '@rollup/plugin-babel'
 import dts from 'rollup-plugin-dts'
 
 const {
@@ -22,7 +23,12 @@ export default [
 			{ file: `${output}.esm.js`, format: 'esm' },
 			{ file: `${output}.umd.js`, format: 'umd', name: APP_BUILD_UMD_NAME },
 		],
-		plugins: [typescript()],
+		plugins: [
+			typescript(),
+			babel({
+				exclude: 'node_modules/**',
+			}),
+		],
 	},
 	{
 		input,
