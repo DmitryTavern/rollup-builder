@@ -2,6 +2,11 @@
 	"name": "dtavern-rollup-builder",
 	"version": "0.0.1",
 	"description": "Rollup builder",
+	"author": {
+		"name": "Dmitry Tavern",
+		"url": "https://github.com/DmitryTavern"
+	},
+	"license": "MIT",
 	"main": "dist/bundle.js",
 	"types": "dist/bundle.d.ts",
 	"scripts": {
