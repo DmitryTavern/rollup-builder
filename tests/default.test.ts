@@ -1,6 +1,5 @@
-import { initPlugin } from '../dist/bundle'
+import { initPlugin } from '../dist'
 
 it('Default test', () => {
-	// @ts-ignore
 	expect(() => initPlugin()).toThrow()
 })

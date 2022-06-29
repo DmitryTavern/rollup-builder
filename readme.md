@@ -9,4 +9,3 @@ Builder for creating own js plugins or npm modules.
 - **Alias import** - clean imports in files
 - **Jest test** - tested code
 - **Git hooks** - pre-commit for auto-fixing code
-- Automatic creating **.d.ts** files

@@ -4,7 +4,7 @@
 		"baseUrl": "./",
 		"paths": {
 			"@utilities": ["src/utilities/index.ts"],
-			"@types": ["types/index.ts"]
+			"@types": ["types/index.d.ts"]
 		}
 	},
 	"include": ["src", "types"],

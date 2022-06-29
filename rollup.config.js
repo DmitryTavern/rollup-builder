@@ -4,7 +4,6 @@ import typescript from '@rollup/plugin-typescript'
 import babel from '@rollup/plugin-babel'
 import alias from '@rollup/plugin-alias'
 import del from 'rollup-plugin-delete'
-import dts from 'rollup-plugin-dts'
 
 const {
 	NODE_ENV,
@@ -18,36 +17,26 @@ const {
 const input = path.join(APP_SRC_DIRNAME, `${APP_FILENAME}.ts`)
 const output = path.join(APP_BUILD_DIRNAME, `${APP_BUILD_FILENAME}`)
 
-const aliasPlugin = alias({
-	entries: [
-		{
-			find: '@utilities',
-			replacement: path.resolve(__dirname, 'src/utilities/index'),
-		},
-		{
-			find: '@types',
-			replacement: path.resolve(__dirname, 'types/index'),
-		},
-	],
-})
-
 const rollupConfig = [
 	{
 		input,
 		output: [{ file: `${output}.js`, format: 'cjs' }],
 		plugins: [
 			del({ targets: `${APP_BUILD_DIRNAME}/*` }),
-			aliasPlugin,
+			alias({
+				entries: [
+					{
+						find: '@utilities',
+						replacement: path.resolve(__dirname, 'src/utilities/index'),
+					},
+					{
+						find: '@types',
+						replacement: path.resolve(__dirname, 'types/index'),
+					},
+				],
+			}),
 			typescript(),
 		],
-	},
-	{
-		input,
-		output: {
-			file: `${output}.d.ts`,
-			format: 'cjs',
-		},
-		plugins: [aliasPlugin, dts()],
 	},
 ]
 
