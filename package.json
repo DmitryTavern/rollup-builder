@@ -1,6 +1,6 @@
 {
 	"name": "dtavern-rollup-builder",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Rollup builder",
 	"author": {
 		"name": "Dmitry Tavern",
